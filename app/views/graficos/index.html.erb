@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Graficos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ruta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @graficos.each do |grafico| %>
+      <tr>
+        <td><%= grafico.grafico %></td>
+        <td><%= link_to 'Show', grafico %></td>
+        <td><%= link_to "Download", grafico.grafico_url %></td>
+        <td><%= link_to 'Edit', edit_grafico_path(grafico) %></td>
+        <td><%= link_to 'Destroy', grafico, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grafico', new_grafico_path %>

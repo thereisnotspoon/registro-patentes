@@ -1,0 +1,232 @@
+<%= form_for(@patente) do |f| %>
+  <% if @patente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patente.errors.count, "error") %> prohibited this patente from being saved:</h2>
+
+      <ul>
+      <% @patente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="container">
+      
+      <div class="form-group row">
+        <%= f.label :tipo_expediente, :class=>"col-sm-2 col-form-label", :for=>"select" %>
+        <div class="col-xs-10 col-sm-10 ">
+          <%= select_tag :tipo_expediente, options_for_select([['IEPI',1],['IEPI2',2]]), :class=>"form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :fecha_presentacion, :class=>"col-sm-1 col-form-label" %>
+        <div class="col-sm-5">
+          <%= select_date Date.today, prefix: :start_date, :class=>"form-control" %>
+        </div>
+        <%= f.label :numero_solicitud, :class=>"col-sm-1 col-form-label" %>
+        <div class="col-sm-5">
+          <%= f.text_field :numero_solicitud, :class=>"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :fecha_de_presentacion_intern, :class=>"col-sm-1 col-form-label" %>
+        <div class="col-sm-3">
+          <%= select_date Date.today, prefix: :start_date, :class=>"form-control" %>
+        </div>
+        <%= f.label :numero_solicitud_intern, :class=>"col-sm-1 col-form-label" %>
+        <div class="col-sm-1">
+          <%= f.text_field :numero_solicitud_intern, :class=>"form-control"  %>
+        </div>
+        <%= f.label :fecha_de_publicacion_intern, :class=>"col-sm-1 col-form-label" %>
+        <div class="col-sm-3">
+          <%= select_date Date.today, prefix: :start_date, :class=>"form-control" %>
+        </div>
+        <%= f.label :numero_publicacion_intern, :class=>"col-sm-1 col-form-label" %>
+        <div class="col-sm-1">
+          <%= f.text_field :numero_publicacion_intern,  :class=>"form-control" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :denominacion_titulo, :class=>"col-sm-2 col-form-label", :for=>"select" %>
+        <div class="col-xs-10 col-sm-10 ">
+          <%= f.text_field :denominacion_titulo, :class=>"form-control" %>
+        </div>
+      </div>
+      
+    <div class="panel-group">
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_solicitante">Solicitante o Titular</a>
+        </h4>
+      </div>
+      <div id="collapse_solicitante" class="panel-collapse collapse">
+        <div class="panel-body">
+          
+            <div class="form-group row">
+              
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Nombres</th>
+                      <th>Apellidos</th>
+                      <th>Tipo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @patente.personas.each do |per| %>
+                    <tr>
+                      <td><%= per.nombres %></td>
+                      <td><%= per.apellidos %></td>
+                      <td><%= per.patente_personas.where(["patente_id = ? and persona_id = ?", @patente.id, per.id]).first.tipo_persona %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                
+                <%= link_to 'Nuevo solicitante', new_solicitante_path(:patente_id => @patente.id, :tipo_persona => "Solicitante" ),  :target => "_blank", :data => { :foo => 'bar', :this => 'that' } %>
+                <%= link_to 'Agregar solicitante', add_solicitante_path, :target => "_blank" %>
+                
+                
+            </div>
+        </div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_inventor">Inventor</a>
+        </h4>
+      </div>
+      <div id="collapse_inventor" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group row">
+              <%= label_tag :nombres, "Nombres" ,:class=>"col-sm-1 col-form-label"%>
+              <div class="col-sm-5">
+                <%= text_field_tag :nombres, :Nombre_Completo , :class=>"form-control" %>
+              </div>
+                <%= label_tag :pais_de_residencia, "Pais de Residencia" , :class=>"col-sm-1 col-form-label" %>
+              <div class="col-sm-5">
+                <%= text_field_tag :pais_de_residencia, :Pais, :class=>"form-control" %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse2">Prioridad</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group row">
+                <input class="button">
+            </div>
+        </div>
+        <div class="panel-footer">Panel Footer</div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_ipc">Clase IPC</a>
+        </h4>
+      </div>
+      <div id="collapse_ipc" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group row">
+                <input class="button">
+            </div>
+        </div>
+        <div class="panel-footer">Panel Footer</div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_resumen">Resumen</a>
+        </h4>
+      </div>
+      <div id="collapse_resumen" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group">
+              <label for="comment">Resumen:</label>
+              <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+        </div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_graficos">Graficos</a>
+        </h4>
+      </div>
+      <div id="collapse_graficos" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-xs-6 col-sm-6 ">
+                  
+                </div>
+                <div class="col-xs-6 col-sm-6 ">
+                  <img src=" <%= @patente.graficos[0].grafico_url%>" class="img-rounded">
+                </div>
+               
+            </div>
+        </div>
+        <div class="panel-footer">Panel Footer</div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_representante">Representante</a>
+        </h4>
+      </div>
+      <div id="collapse_representante" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group row">
+              <%= label_tag :nombres, "Nombres" ,:class=>"col-sm-1 col-form-label"%>
+              <div class="col-sm-5">
+                <%= text_field_tag :nombres, :Nombre_Completo , :class=>"form-control" %>
+              </div>
+                <%= label_tag :pais_de_residencia, "Pais de Residencia" , :class=>"col-sm-1 col-form-label" %>
+              <div class="col-sm-5">
+                <%= text_field_tag :pais_de_residencia, :Pais, :class=>"form-control" %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse_correspondencia">Correspondecia</a>
+        </h4>
+      </div>
+      <div id="collapse_correspondencia" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div class="form-group row">
+                <input class="button">
+            </div>
+        </div>
+        <div class="panel-footer">Panel Footer</div>
+      </div>
+    </div>
+      
+    </div>
+    
+    </div>
+     
+      
+      
+    
+    <%= f.submit %>
+    
+  
+<% end %>

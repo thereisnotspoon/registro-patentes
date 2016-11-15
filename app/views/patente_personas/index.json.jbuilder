@@ -1,0 +1,1 @@
+json.array! @patente_personas, partial: 'patente_personas/patente_persona', as: :patente_persona

@@ -1,0 +1,2 @@
+json.extract! persona, :id, :apellidos, :nombres, :pais_de_origen, :documeto_de_dentificaion, :numero_de_documento, :fecha_de_nacimiento, :fecha_de_defuncion, :pais_de_residencia, :lugar, :direccion, :telefonos, :faxes, :codigo_postal, :persona_natural, :residente_en_ecuador, :codigo, :created_at, :updated_at
+json.url persona_url(persona, format: :json)

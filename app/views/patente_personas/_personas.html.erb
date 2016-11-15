@@ -1,0 +1,116 @@
+ 
+  
+	<div class="row">
+		<div class="col-md-6">
+		  <div class="form-group">
+        <%= label_tag :apellidos %><br>
+        <%= text_field_tag :apellidos , "",:class => "form-control" %>
+      </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="form-group">
+        <%= label_tag :nombres %><br>
+        <%= text_field_tag :nombres , "",:class => "form-control"%>
+      </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		  <div class="form-group">
+        <%= label_tag :pais_de_origen %><br>
+        <%= select_tag :pais_de_origen, options_for_select([['Ecuador',1],['EE.UU.',2]]), :class=>"form-control" %>
+      </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+		  <div class="form-group">
+        <%= label_tag :documeto_de_identificacion %><br>
+        <%= select_tag :documento_de_identificacion, options_for_select([['Cédula',1],['Pasaporte',2]]), :class=>"form-control" %>
+      </div>
+		</div>
+		<div class="col-md-6">
+	   <div class="form-group">
+        <%= label_tag :numero_de_documento %><br>
+        <%= text_field_tag :numero_de_documento , "",:class => "form-control" %>
+      </div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+      <div class="form-group">
+        <%= label_tag :fecha_de_nacimiento %><br>
+        <input type="text" data-provide='datepicker' class="form-control" name="fecha_de_nacimiento">
+      </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="form-group">
+        <%= label_tag :fecha_de_defuncion %><br>
+        <input type="text" data-provide='datepicker' class="form-control" name="fecha_de_defuncion">
+      </div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+		  <div class="form-group">
+        <%= label_tag :pais_de_residencia %><br>
+        <%= select_tag :pais_de_residencia, options_for_select([['Ecuador',1],['EE.UU.',2]]), :class=>"form-control" %>
+      </div>
+		</div>
+		<div class="col-md-6">
+		  <div class="form-group">
+        <%= label_tag :lugar_de_residencia %><br>
+        <%= text_field_tag :lugar_de_residencia, "",:class => "form-control"%>
+      </div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-5">
+		  <div class="form-group">
+        <%= label_tag :direccion %><br>
+        <%= text_field_tag :direccion , "",:class => "form-control"%>
+      </div>
+		</div>
+		<div class="col-md-3">
+		  <div class="form-group">
+        <%= label_tag :telefonos %><br>
+        <%= text_field_tag :telefonos , "",:class => "form-control" %>
+      </div>
+		</div>
+		<div class="col-md-2">
+		  <div class="form-group">
+        <%= label_tag :faxes %><br>
+        <%= text_field_tag :faxes , "",:class => "form-control"%>
+      </div>
+		</div>
+		<div class="col-md-2">
+		  <div class="form-group">
+        <%= label_tag :codigo_postal %><br>
+        <%= text_field_tag :codigo_postal , "",:class => "form-control"%>
+      </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		  <div class="form-group">
+        <%= label_tag :persona_natural %><br>
+        <%= check_box_tag :persona_natural, 'yes', false, class: 'accept_tos' %>
+      </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="form-group">
+        <%= label_tag :residente_en_ecuador %><br>
+        <%= check_box_tag :residente_en_ecuador, 'yes', false, class: 'accept_tos' %>
+      </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="form-group">
+        <%= label_tag :codigo %><br>
+        <%= text_field_tag :codigo , "",:class => "form-control"%>
+      </div>
+		</div>
+	</div>
+ 

@@ -1,0 +1,1 @@
+json.array! @graficos, partial: 'graficos/grafico', as: :grafico

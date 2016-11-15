@@ -1,0 +1,16 @@
+<div class="container">
+  
+  <h1>Agregar <%= @patente_persona.tipo_persona %></h1>
+
+  <form class="new_persona" id="new_persona" action="patente_personas_todo" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="form-group">
+      <%= label_tag :tipo_de_persona %><br>
+      <%= text_field_tag :tipo_de_persona, @patente_persona.tipo_persona , :class=>"form-control", :disabled=>true%>
+    </div>
+      <%= render 'personas' %>
+      <input type="submit" value="Submit">
+  </form>
+
+  <%= link_to 'Back', patente_personas_path %>
+</div>

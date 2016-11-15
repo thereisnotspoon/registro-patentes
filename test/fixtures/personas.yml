@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apellidos: MyString
+  nombres: MyString
+  pais_de_origen: MyString
+  documeto_de_dentificaion: MyString
+  numero_de_documento: MyString
+  fecha_de_nacimiento: MyString
+  fecha_de_defuncion: MyString
+  pais_de_residencia: MyString
+  lugar: MyString
+  direccion: MyString
+  telefonos: MyString
+  faxes: MyString
+  codigo_postal: MyString
+  persona_natural: MyString
+  residente_en_ecuador: MyString
+  codigo: MyString
+
+two:
+  apellidos: MyString
+  nombres: MyString
+  pais_de_origen: MyString
+  documeto_de_dentificaion: MyString
+  numero_de_documento: MyString
+  fecha_de_nacimiento: MyString
+  fecha_de_defuncion: MyString
+  pais_de_residencia: MyString
+  lugar: MyString
+  direccion: MyString
+  telefonos: MyString
+  faxes: MyString
+  codigo_postal: MyString
+  persona_natural: MyString
+  residente_en_ecuador: MyString
+  codigo: MyString

@@ -1,0 +1,81 @@
+<%= form_for @persona do |f| %>
+  <% if @persona.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+
+      <ul>
+      <% @persona.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :apellidos %><br>
+    <%= f.text_field :apellidos %>
+  </div>
+  <div class="field">
+    <%= f.label :nombres %><br>
+    <%= f.text_field :nombres %>
+  </div>
+  <div class="field">
+    <%= f.label :pais_de_origen %><br>
+    <%= f.text_field :pais_de_origen %>
+  </div>
+  <div class="field">
+    <%= f.label :documeto_de_dentificaion %><br>
+    <%= f.text_field :documeto_de_dentificaion %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_de_documento %><br>
+    <%= f.text_field :numero_de_documento %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_de_nacimiento %><br>
+    <%= f.text_field :fecha_de_nacimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_de_defuncion %><br>
+    <%= f.text_field :fecha_de_defuncion %>
+  </div>
+  <div class="field">
+    <%= f.label :pais_de_residencia %><br>
+    <%= f.text_field :pais_de_residencia %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar %><br>
+    <%= f.text_field :lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefonos %><br>
+    <%= f.text_field :telefonos %>
+  </div>
+  <div class="field">
+    <%= f.label :faxes %><br>
+    <%= f.text_field :faxes %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo_postal %><br>
+    <%= f.text_field :codigo_postal %>
+  </div>
+  <div class="field">
+    <%= f.label :persona_natural %><br>
+    <%= f.text_field :persona_natural %>
+  </div>
+  <div class="field">
+    <%= f.label :residente_en_ecuador %><br>
+    <%= f.text_field :residente_en_ecuador %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo %><br>
+    <%= f.text_field :codigo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

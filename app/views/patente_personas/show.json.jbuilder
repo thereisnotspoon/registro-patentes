@@ -1,0 +1,1 @@
+json.partial! "patente_personas/patente_persona", patente_persona: @patente_persona

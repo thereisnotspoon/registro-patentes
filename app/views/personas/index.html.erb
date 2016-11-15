@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Personas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Apellidos</th>
+      <th>Nombres</th>
+      <th>Pais de origen</th>
+      <th>Documeto de dentificaion</th>
+      <th>Numero de documento</th>
+      <th>Fecha de nacimiento</th>
+      <th>Fecha de defuncion</th>
+      <th>Pais de residencia</th>
+      <th>Lugar</th>
+      <th>Direccion</th>
+      <th>Telefonos</th>
+      <th>Faxes</th>
+      <th>Codigo postal</th>
+      <th>Persona natural</th>
+      <th>Residente en ecuador</th>
+      <th>Codigo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personas.each do |persona| %>
+      <tr>
+        <td><%= persona.apellidos %></td>
+        <td><%= persona.nombres %></td>
+        <td><%= persona.pais_de_origen %></td>
+        <td><%= persona.documeto_de_dentificaion %></td>
+        <td><%= persona.numero_de_documento %></td>
+        <td><%= persona.fecha_de_nacimiento %></td>
+        <td><%= persona.fecha_de_defuncion %></td>
+        <td><%= persona.pais_de_residencia %></td>
+        <td><%= persona.lugar %></td>
+        <td><%= persona.direccion %></td>
+        <td><%= persona.telefonos %></td>
+        <td><%= persona.faxes %></td>
+        <td><%= persona.codigo_postal %></td>
+        <td><%= persona.persona_natural %></td>
+        <td><%= persona.residente_en_ecuador %></td>
+        <td><%= persona.codigo %></td>
+        <td><%= link_to 'Show', persona %></td>
+        <td><%= link_to 'Edit', edit_persona_path(persona) %></td>
+        <td><%= link_to 'Destroy', persona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'New Persona', new_persona_path %>
